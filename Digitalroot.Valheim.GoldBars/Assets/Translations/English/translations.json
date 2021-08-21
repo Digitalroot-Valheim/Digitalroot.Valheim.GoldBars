@@ -1,0 +1,10 @@
+﻿{
+  "gold_bar": "Gold",
+  "gold_bar_desc": "All that glitters is gold. A bar of pure gold ready to be worked.",
+  "coin_pile": "Coin Pile",
+  "coin_pile_desc": "A pile of coins.",
+  "piece_goldstack": "Gold Stack",
+  "piece_goldstack_desc": "A stack of gold ingots.",
+  "piece_coinpile": "Coin Pile",
+  "piece_coinpile_desc": "A pile of coins."
+}

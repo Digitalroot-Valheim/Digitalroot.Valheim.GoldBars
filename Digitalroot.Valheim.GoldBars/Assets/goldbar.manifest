@@ -1,0 +1,60 @@
+ManifestFileVersion: 0
+CRC: 2071901047
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9dae3f13c352580b18fc6cd9662ab161
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 00e7c6fed9bd803af65bb04f52de1402
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 2094620348, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 114
+  Script: {fileID: 825357479, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 114
+  Script: {fileID: 895252998, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 114
+  Script: {fileID: 1521249158, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 114
+  Script: {fileID: 1109157524, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 205
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/GoldIngot/GoldIngot.prefab
+- Assets/GoldIngot/piece_goldstack.prefab
+- Assets/GoldIngot/piece_coinpile.prefab
+- Assets/GoldIngot/CoinPile.prefab
+Dependencies: []

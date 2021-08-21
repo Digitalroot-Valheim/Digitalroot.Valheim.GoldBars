@@ -348,3 +348,12 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/Digitalroot.Valheim.GoldBars/Assets/Assets.manifest
+/Digitalroot.Valheim.GoldBars/Assets/Assets
+/Digitalroot.Valheim.GoldBars/Assets/kitbash.manifest
+/Digitalroot.Valheim.GoldBars/Assets/kitbash
+/Digitalroot.Valheim.GoldBars/Assets/testblueprints.manifest
+/Digitalroot.Valheim.GoldBars/Assets/testblueprints
+/Digitalroot.Valheim.GoldBars/Assets/steel.manifest
+/Digitalroot.Valheim.GoldBars/Assets/steel
+/Digitalroot.Valheim.GoldBars.UnityProject
