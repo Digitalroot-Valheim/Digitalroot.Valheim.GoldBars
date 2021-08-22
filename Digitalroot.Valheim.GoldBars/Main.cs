@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using BepInEx.Configuration;
 using JetBrains.Annotations;
 using Jotunn.Configs;
 using Jotunn.Entities;
@@ -13,11 +14,15 @@ namespace Digitalroot.Valheim.GoldBars
   [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
   public class Main : BaseUnityPlugin
   {
-    public const string Version = "1.0.0";
+    public const string Version = "1.1.0";
     public const string Name = "Digitalroot GoldBars";
     public const string Guid = "digitalroot.mods.GoldBars";
     public const string Namespace = "Digitalroot.Valheim.GoldBars";
     public static Main Instance;
+
+    public static ConfigEntry<int> NexusId;
+    public static ConfigEntry<int> CoinPilePieceComfort;
+    public static ConfigEntry<int> GoldStackPieceComfort;
 
     private GameObject _goldBar;
     private GameObject _coinPile;
@@ -28,6 +33,9 @@ namespace Digitalroot.Valheim.GoldBars
     public Main()
     {
       Instance = this;
+      NexusId = Config.Bind("General", "NexusID", 1448, new ConfigDescription("Nexus mod ID for updates", null, new ConfigurationManagerAttributes { IsAdminOnly = false, Browsable = false, ReadOnly = true }));
+      CoinPilePieceComfort = Config.Bind("General", "CoinPilePieceComfort", 1, new ConfigDescription("Coin Pile Comfort Level", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+      GoldStackPieceComfort = Config.Bind("General", "GoldStackPieceComfort", 2, new ConfigDescription("Gold Stack Comfort Level", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
     }
 
     [UsedImplicitly]
@@ -70,7 +78,7 @@ namespace Digitalroot.Valheim.GoldBars
 
     private void LoadRecipes()
     {
-      CustomRecipe coinRecipe = new CustomRecipe(new RecipeConfig()
+      CustomRecipe coinRecipe = new CustomRecipe(new RecipeConfig
       {
         Amount = 200, Item = "Coins", // Name of the item prefab to be crafted
         Name = "PileToCoins"
@@ -81,7 +89,7 @@ namespace Digitalroot.Valheim.GoldBars
       });
       ItemManager.Instance.AddRecipe(coinRecipe);
 
-      CustomRecipe coinRecipe2 = new CustomRecipe(new RecipeConfig()
+      CustomRecipe coinRecipe2 = new CustomRecipe(new RecipeConfig
       {
         Amount = 100, Item = "Coins", CraftingStation = "forge", Name = "GoldIngotToCoins", MinStationLevel = 2, Requirements = new[] // Resources and amount needed for it to be crafted
         {
@@ -102,25 +110,12 @@ namespace Digitalroot.Valheim.GoldBars
 
     private void LoadPieces()
     {
-      _goldStackPiece = _assetBundle.LoadAsset<GameObject>("assets/goldingot/piece_goldstack.prefab");
-#if DEBUG
-      Jotunn.Logger.LogDebug($"_goldStackPiece == null : {_goldStackPiece == null}"); // This is null?
-#endif
+      AddGoldStack();
+      AddCoinPile();
+    }
 
-      var goldBarStack = new CustomPiece(_goldStackPiece,
-        new PieceConfig
-        {
-          PieceTable = "_HammerPieceTable",
-          CraftingStation = "",
-          Enabled = true,
-          Requirements = new[]
-          {
-            new RequirementConfig { Item = "GoldIngot", Amount = 48, Recover = true },
-          }
-        });
-      PieceManager.Instance.AddPiece(goldBarStack);
-
-
+    private void AddCoinPile()
+    {
       _coinPilePiece = _assetBundle.LoadAsset<GameObject>("assets/goldingot/piece_coinpile.prefab");
 #if DEBUG
       Jotunn.Logger.LogDebug($"_coinPilePiece == null : {_coinPilePiece == null}"); // This is null?
@@ -129,15 +124,43 @@ namespace Digitalroot.Valheim.GoldBars
       var coinPilePiece = new CustomPiece(_coinPilePiece,
         new PieceConfig
         {
-          PieceTable = "_HammerPieceTable",
-          CraftingStation = "",
-          Enabled = true,
-          Requirements = new[]
+          PieceTable = "_HammerPieceTable", CraftingStation = "", Enabled = true, Requirements = new[]
           {
             new RequirementConfig { Item = "Coins", Amount = 200, Recover = true },
           }
-        });
+        })
+      {
+        Piece =
+        {
+          m_comfort = CoinPilePieceComfort.Value
+        }
+      };
       PieceManager.Instance.AddPiece(coinPilePiece);
+    }
+
+    private void AddGoldStack()
+    {
+      _goldStackPiece = _assetBundle.LoadAsset<GameObject>("assets/goldingot/piece_goldstack.prefab");
+#if DEBUG
+      Jotunn.Logger.LogDebug($"_goldStackPiece == null : {_goldStackPiece == null}"); // This is null?
+#endif
+
+      var goldBarStack = new CustomPiece(_goldStackPiece,
+        new PieceConfig
+        {
+          PieceTable = "_HammerPieceTable", CraftingStation = "", Enabled = true, Requirements = new[]
+          {
+            new RequirementConfig { Item = "GoldIngot", Amount = 48, Recover = true },
+          }
+          ,
+        })
+      {
+        Piece =
+        {
+          m_comfort = GoldStackPieceComfort.Value
+        }
+      };
+      PieceManager.Instance.AddPiece(goldBarStack);
     }
   }
 }
