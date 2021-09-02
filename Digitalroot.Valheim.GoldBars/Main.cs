@@ -14,7 +14,7 @@ namespace Digitalroot.Valheim.GoldBars
   [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
   public class Main : BaseUnityPlugin
   {
-    public const string Version = "1.1.0";
+    public const string Version = "1.1.1";
     public const string Name = "Digitalroot GoldBars";
     public const string Guid = "digitalroot.mods.GoldBars";
     public const string Namespace = "Digitalroot.Valheim.GoldBars";
