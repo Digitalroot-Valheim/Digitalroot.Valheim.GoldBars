@@ -10,11 +10,11 @@ using UnityEngine;
 namespace Digitalroot.Valheim.GoldBars
 {
   [BepInPlugin(Guid, Name, Version)]
-  [BepInDependency(Jotunn.Main.ModGuid)]
+  [BepInDependency(Jotunn.Main.ModGuid, "2.3.0")]
   [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
   public class Main : BaseUnityPlugin
   {
-    public const string Version = "1.1.2";
+    public const string Version = "1.2.0";
     public const string Name = "Digitalroot GoldBars";
     public const string Guid = "digitalroot.mods.GoldBars";
     public const string Namespace = "Digitalroot.Valheim.GoldBars";
@@ -121,7 +121,8 @@ namespace Digitalroot.Valheim.GoldBars
       Jotunn.Logger.LogDebug($"_coinPilePiece == null : {_coinPilePiece == null}"); // This is null?
 #endif
 
-      var coinPilePiece = new CustomPiece(_coinPilePiece,
+      var coinPilePiece = new CustomPiece(_coinPilePiece, 
+        false,
         new PieceConfig
         {
           PieceTable = "_HammerPieceTable", CraftingStation = "", Enabled = true, Requirements = new[]
@@ -146,6 +147,7 @@ namespace Digitalroot.Valheim.GoldBars
 #endif
 
       var goldBarStack = new CustomPiece(_goldStackPiece,
+        false,
         new PieceConfig
         {
           PieceTable = "_HammerPieceTable", CraftingStation = "", Enabled = true, Requirements = new[]
