@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Digitalroot-Valheim/Digitalroot.Valheim.Common.Interfaces/main/src/json/tsio-manifest.json",
+  "name": "Digitalroots_GoldBars",
+  "author": "Digitalroot",
+  "description": "Adds gold bars that are craftable from coins. A placed Coin Pile adds one comfort. A placed Gold Stack adds two comfort. Gold bars can be turned back into coins at the forge.",
+  "version_number": "%VERSION_NUMBER%",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.1901",
+    "ValheimModding-Jotunn-2.9.0"
+  ],
+  "website_url": "https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.GoldBars"
+}

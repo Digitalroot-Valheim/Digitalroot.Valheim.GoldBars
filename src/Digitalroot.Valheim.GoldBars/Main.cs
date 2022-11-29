@@ -1,23 +1,24 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
+using Digitalroot.Valheim.Common;
 using JetBrains.Annotations;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using UnityEngine;
 
 namespace Digitalroot.Valheim.GoldBars
 {
   [BepInPlugin(Guid, Name, Version)]
-  [BepInDependency(Jotunn.Main.ModGuid, "2.3.0")]
+  [BepInDependency(Jotunn.Main.ModGuid, "2.9.0")]
   [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-  public class Main : BaseUnityPlugin
+  [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+  public partial class Main : BaseUnityPlugin, ITraceableLogging
   {
-    public const string Version = "1.2.0";
-    public const string Name = "Digitalroot GoldBars";
-    public const string Guid = "digitalroot.mods.GoldBars";
-    public const string Namespace = "Digitalroot.Valheim.GoldBars";
     public static Main Instance;
 
     public static ConfigEntry<int> NexusId;
@@ -33,29 +34,44 @@ namespace Digitalroot.Valheim.GoldBars
     public Main()
     {
       Instance = this;
+      #if DEBUG
+      EnableTrace = true;
+      Log.RegisterSource(Instance);
+      #else
+      EnableTrace = false;
+      #endif
+      Log.Trace(Main.Instance, $"{Main.Namespace}.{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}.{MethodBase.GetCurrentMethod()?.Name}");
       NexusId = Config.Bind("General", "NexusID", 1448, new ConfigDescription("Nexus mod ID for updates", null, new ConfigurationManagerAttributes { IsAdminOnly = false, Browsable = false, ReadOnly = true }));
       CoinPilePieceComfort = Config.Bind("General", "CoinPilePieceComfort", 1, new ConfigDescription("Coin Pile Comfort Level", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
       GoldStackPieceComfort = Config.Bind("General", "GoldStackPieceComfort", 2, new ConfigDescription("Gold Stack Comfort Level", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
     }
 
     [UsedImplicitly]
-    public void Awake()
+    private void Awake()
     {
-      _assetBundle = AssetUtils.LoadAssetBundleFromResources("goldbar", typeof(Main).Assembly);
-
-#if DEBUG
-      foreach (var assetName in _assetBundle.GetAllAssetNames())
+      try
       {
-        Jotunn.Logger.LogInfo(assetName);
+        Log.Trace(Main.Instance, $"{Main.Namespace}.{MethodBase.GetCurrentMethod()?.DeclaringType?.Name}.{MethodBase.GetCurrentMethod()?.Name}");
+        _assetBundle = AssetUtils.LoadAssetBundleFromResources("goldbar", typeof(Main).Assembly);
+
+        #if DEBUG
+        foreach (var assetName in _assetBundle.GetAllAssetNames())
+        {
+          Log.Trace(Instance, assetName);
+        }
+        #endif
+
+        LoadPrefabs();
+        LoadRecipes();
+        LoadConversion();
+        LoadPieces();
+
+        _assetBundle.Unload(false);
       }
-#endif
-
-      LoadPrefabs();
-      LoadRecipes();
-      LoadConversion();
-      LoadPieces();
-
-      _assetBundle.Unload(false);
+      catch (Exception e)
+      {
+        Log.Error(Instance, e);
+      }
     }
 
     private void LoadPrefabs()
@@ -117,19 +133,19 @@ namespace Digitalroot.Valheim.GoldBars
     private void AddCoinPile()
     {
       _coinPilePiece = _assetBundle.LoadAsset<GameObject>("assets/goldingot/piece_coinpile.prefab");
-#if DEBUG
-      Jotunn.Logger.LogDebug($"_coinPilePiece == null : {_coinPilePiece == null}"); // This is null?
-#endif
+      #if DEBUG
+      Log.Trace(Instance, $"_coinPilePiece == null : {_coinPilePiece == null}"); // This is null?
+      #endif
 
-      var coinPilePiece = new CustomPiece(_coinPilePiece, 
-        false,
-        new PieceConfig
-        {
-          PieceTable = "_HammerPieceTable", CraftingStation = "", Enabled = true, Requirements = new[]
-          {
-            new RequirementConfig { Item = "Coins", Amount = 200, Recover = true },
-          }
-        })
+      var coinPilePiece = new CustomPiece(_coinPilePiece,
+                                          false,
+                                          new PieceConfig
+                                          {
+                                            PieceTable = "_HammerPieceTable", CraftingStation = "", Enabled = true, Requirements = new[]
+                                            {
+                                              new RequirementConfig { Item = "Coins", Amount = 200, Recover = true },
+                                            }
+                                          })
       {
         Piece =
         {
@@ -142,20 +158,20 @@ namespace Digitalroot.Valheim.GoldBars
     private void AddGoldStack()
     {
       _goldStackPiece = _assetBundle.LoadAsset<GameObject>("assets/goldingot/piece_goldstack.prefab");
-#if DEBUG
-      Jotunn.Logger.LogDebug($"_goldStackPiece == null : {_goldStackPiece == null}"); // This is null?
-#endif
+      #if DEBUG
+      Log.Trace(Instance, $"_goldStackPiece == null : {_goldStackPiece == null}"); // This is null?
+      #endif
 
       var goldBarStack = new CustomPiece(_goldStackPiece,
-        false,
-        new PieceConfig
-        {
-          PieceTable = "_HammerPieceTable", CraftingStation = "", Enabled = true, Requirements = new[]
-          {
-            new RequirementConfig { Item = "GoldIngot", Amount = 48, Recover = true },
-          }
-          ,
-        })
+                                         false,
+                                         new PieceConfig
+                                         {
+                                           PieceTable = "_HammerPieceTable", CraftingStation = "", Enabled = true, Requirements = new[]
+                                           {
+                                             new RequirementConfig { Item = "GoldIngot", Amount = 48, Recover = true },
+                                           }
+                                           ,
+                                         })
       {
         Piece =
         {
@@ -164,5 +180,15 @@ namespace Digitalroot.Valheim.GoldBars
       };
       PieceManager.Instance.AddPiece(goldBarStack);
     }
+
+    #region Implementation of ITraceableLogging
+
+    /// <inheritdoc />
+    public string Source => Namespace;
+
+    /// <inheritdoc />
+    public bool EnableTrace { get; }
+
+    #endregion
   }
 }

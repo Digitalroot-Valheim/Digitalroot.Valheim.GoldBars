@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 2881214169
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f622099ea841d8290d61b606f1a2067f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 14b4ea4f6d89259153e1c5483da4116a
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 2094620348, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 114
+  Script: {fileID: 895252998, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 114
+  Script: {fileID: 1521249158, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Kitbash/Icons/piece_odin_statue.png
+- Assets/Kitbash/piece_odin_statue.prefab
+Dependencies: []

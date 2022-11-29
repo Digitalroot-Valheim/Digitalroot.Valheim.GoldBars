@@ -1,0 +1,66 @@
+ManifestFileVersion: 0
+CRC: 2033452292
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7b3f88e882edb30cbca8c501303414da
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6c12192fa89e71dd56715299bb8c34d3
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 2094620348, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 114
+  Script: {fileID: 825357479, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 114
+  Script: {fileID: -946862589, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 114
+  Script: {fileID: 1521249158, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 114
+  Script: {fileID: 1109157524, guid: 02f806226319f1d4b8ae0232b57e8b19, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Blueprints/Textures/runestone_LP_Material_AlbedoTransparency.png
+- Assets/Blueprints/make_testblueprint.prefab
+- Assets/Blueprints/Localization/English.json
+- Assets/Blueprints/_BlueprintTestTable.prefab
+- Assets/Blueprints/Icons/BlueprintIcon.png
+- Assets/Blueprints/Icons/BlueprintCopyIcon.png
+- Assets/Blueprints/Materials/RuneMaterial.mat
+- Assets/Blueprints/Localization/Deutsch.json
+- Assets/Blueprints/Textures/runestone_LP_Material_Emission.png
+- Assets/Blueprints/BlueprintTestRune.prefab
+- Assets/Blueprints/Mesh/RuneStoneLow.mesh
+- Assets/Blueprints/Textures/runestone_LP_Material_Normal.png
+- Assets/Blueprints/piece_testblueprint.prefab
+- Assets/Blueprints/Icons/BlueprintRuneIcon.png
+Dependencies: []

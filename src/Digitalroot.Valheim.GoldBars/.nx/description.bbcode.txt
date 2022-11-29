@@ -1,0 +1,42 @@
+﻿[b][size=4]Digitalroot Valheim Mods[/size][/b]
+[size=3]Mods for Valheim using BepInEx, Harmony[/size]
+
+[b][size=4]License[/size][/b]
+[size=3][url=https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.EpicLoot.Adventure.Bounties/blob/main/LICENSE]GNU Affero General Public License v3.0[/url]
+Closed-source license is available for commercial use.[/size]
+
+[b][size=4]Source[/size][/b]
+[size=4][size=3][url=https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.GoldBars]GitHub[/url][/size]
+[/size]
+[b][size=4]Digitalroot's Gold Bars[/size][/b]
+
+[size=3]Adds gold bars that are craftable from coins.
+A placed Coin Pile adds one comfort.
+A placed Gold Stack adds two comfort. 
+Gold bars can be turned back into coins at the forge.[/size]
+[size=3][size=3]
+[b][size=4]Installation (manual)[/size][/b]
+[list=1]
+[*][size=3]Download the latest release archive (zip) file.[/size]
+[*][size=3]Extract the archive into <Steam Location>\steamapps\common\Valheim\BepInEx\plugins[/size]
+[/list]
+[b][size=4]Configuration[/size][/b]
+[list]
+[*][size=3]Admin enforced and server syncable.[/size]
+[*][size=3]Comfort level of both the Coin Pile and the Gold Stack are configurable.[/size]
+[/list]
+[b][size=4]Issues/Bugs[/size][/b]
+Open an issue or bug on the [url=https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.GoldBars/issues]issue board[/url]﻿﻿.
+
+[b][size=4]Questions[/size][/b]
+Ask a question on the [url=https://github.com/Digitalroot-Valheim/Digitalroot.Valheim.GoldBars/discussions]discussions board[/url]﻿﻿.
+
+[b][size=4]Support Me @[/size][/b][/size] [url=https://www.buymeacoffee.com/digitalroot]https://www.buymeacoffee.com/digitalroot[/url]
+
+[b][size=4]Thanks to[/size][/b][/size]
+[list]
+[*][size=3]Jules, RockerKitten, [/size][size=3][url=https://github.com/sbtoonz]sbtoonz[/url]﻿[/size], GraveBear, KG, MM/DJ and the rest of the Odin Plus Team
+[*][size=3]The [url=https://discord.gg/GUEBuCuAMz]Valheim Discord[/url]﻿ community. [/size]
+[/list]
+[center][size=3][b][color=#00ffff]Digitalroot can be found in the Odin Plus Team Discord[/color][/b][/size]
+[url=https://discord.gg/mbkPcvu9ax][img]https://digitalroot.net/img/odinplusdisc.png[/img][/url]﻿[/center]
