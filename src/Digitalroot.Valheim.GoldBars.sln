@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Digitalroot.Valheim.GoldBars", "Digitalroot.Valheim.GoldBars\Digitalroot.Valheim.GoldBars.csproj", "{77751278-A982-4C07-8DA2-A4F42F56418D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Digitalroot.Valheim.GoldBars", "Digitalroot.Valheim.GoldBars\Digitalroot.Valheim.GoldBars.csproj", "{77751278-A982-4C07-8DA2-A4F42F56418D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{C341045F-D03F-4606-B2AF-39FE660F28A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +20,12 @@ Global
 		{77751278-A982-4C07-8DA2-A4F42F56418D}.DebugNoDeploy|Any CPU.Build.0 = DebugNoDeploy|Any CPU
 		{77751278-A982-4C07-8DA2-A4F42F56418D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77751278-A982-4C07-8DA2-A4F42F56418D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C341045F-D03F-4606-B2AF-39FE660F28A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C341045F-D03F-4606-B2AF-39FE660F28A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C341045F-D03F-4606-B2AF-39FE660F28A1}.DebugNoDeploy|Any CPU.ActiveCfg = Debug|Any CPU
+		{C341045F-D03F-4606-B2AF-39FE660F28A1}.DebugNoDeploy|Any CPU.Build.0 = Debug|Any CPU
+		{C341045F-D03F-4606-B2AF-39FE660F28A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C341045F-D03F-4606-B2AF-39FE660F28A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
