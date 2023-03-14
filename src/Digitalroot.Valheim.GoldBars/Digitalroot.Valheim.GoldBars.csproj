@@ -27,7 +27,7 @@
       https://nuget.bepinex.dev/v3/index.json;
       https://digitalroot-valheim-nuget.s3.us-west-2.amazonaws.com/index.json
     </RestoreAdditionalProjectSources>
-    <VersionPrefix>1.2.2</VersionPrefix>
+    <VersionPrefix>0.0.1</VersionPrefix>
     <Configurations>Debug;Release;DebugNoDeploy</Configurations>
   </PropertyGroup>
 
@@ -74,6 +74,12 @@
     <PackageReference Include="ILMerge.Fody" Version="[1.22.0]">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\Translations\English\translations.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
