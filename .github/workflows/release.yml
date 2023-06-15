@@ -26,9 +26,15 @@ jobs:
       nexus-api-key: ${{ secrets.NEXUS_API_KEY }}
       nexus-cookie-nxid-header: ${{ secrets.NEXUS_COOKIE_HEADER_NEXUSID }}
       nexus-cookie-sid-header: ${{ secrets.NEXUS_COOKIE_HEADER_SID_DEVELOP }}
+      ts-api-key: ${{ secrets.TS_SERVICEACCOUNT }}
     with:
       sln-file-name: Digitalroot.Valheim.GoldBars
       proj-file-name: Digitalroot.Valheim.GoldBars
       is-nuget-package: false
       nexus-enable-upload: true
       nexus-mod-id: 1448
+      ts-enable-upload: true
+      ts-name: Digitalroots_GoldBars
+      ts-description: "Adds gold bars that are craftable from coins. A placed Coin Pile adds one comfort. A placed Gold Stack adds two comfort. Gold bars can be turned back into coins at the forge."
+      ts-categories: "client-side server-side crafting" #https://thunderstore.io/api/experimental/community/valheim/category/
+      ts-dependencies: denikson-BepInExPack_Valheim@5.4.2105 ValheimModding-Jotunn@2.12.1      
